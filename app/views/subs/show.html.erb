@@ -1,0 +1,37 @@
+<div class="container">
+  <h2><%= @sub.title %></h2>
+  <br>
+
+  <div class="row">
+    <div class="col-md-1">Id</div>
+    <div class="col-md-2">Title</div>
+    <div class="col-md-3">URL</div>
+    <div class="col-md-3">Content</div>
+    <div class="col-md-1">Author Id</div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+  </div>
+  <br>
+
+  <% @sub.posts.each do |post| %>
+
+    <div class="row">
+      <div class="col-md-1"><%= post.id %></div>
+      <div class="col-md-2"><%= post.title %></div>
+      <div class="col-md-3"><%= post.url %></div>
+      <div class="col-md-3"><%= post.content %></div>
+      <div class="col-md-1"><%= post.author_id %></div>
+      <div class="col-md-1">
+        <%= link_to "Edit", edit_sub_post_url(@sub, post) if current_user.id == post.author_id %>
+      </div>
+      <div class="col-md-1">
+        <%= link_to "Delete", sub_post_url(@sub, post), method: :delete if current_user.id == post.author_id %>
+      </div>
+    </div>
+  <% end %>
+
+  <br>
+  <%= link_to "Make a Post", new_sub_post_url(@sub) %>
+  <br>
+  <%= link_to "Back to Subs#Index", subs_url %>
+</div>

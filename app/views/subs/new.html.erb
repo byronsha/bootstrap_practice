@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>Create a New Sub!</h3>
+  <br>
+
+  <form action="<%= subs_url %>" method="post">
+    <%= auth_token %>
+
+    <div class="row">
+      <div class="col-md-2">
+        <label for="sub_title">Title</label>
+      </div>
+      <div class="col-md-10">
+        <input type="text" name="sub[title]" value="<%= @sub.title %>" id="sub_title">
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-2">
+        <label for="sub_description">Description</label>
+      </div>
+      <div class="col-md-10">
+        <textarea name="sub[description]" id="sub_description"></textarea>
+      </div>
+    </div>
+    <br>
+
+    <input type="submit" value="Submit">
+    <br><br>
+    <%= link_to "Back to subs index", subs_url %>
+  </form>
+</div>

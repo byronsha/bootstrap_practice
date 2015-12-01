@@ -1,0 +1,7 @@
+<div class="container" style="padding-top: 50px;">
+  <h3 style="color: orange;">Select a Hero</h3>
+  <% @heroes.each do |hero, image| %>
+
+    <%= link_to image_tag("heroes/#{image.split('/').last}", alt: hero.split("_").join(" "), height:"72", width: "128"), "http://dota2.gamepedia.com/#{hero}" %>
+  <% end %>
+</div>

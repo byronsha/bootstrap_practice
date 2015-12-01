@@ -1,0 +1,39 @@
+<div class="container">
+
+<h3>Make a Post!</h3>
+<br>
+
+<form action="<%= sub_posts_url(params[:sub_id]) %>" method="post">
+  <%= auth_token %>
+  <label for="post_title">Title</label>
+  <input type="text" name="post[title]" value="<%= @post.title %>" id="post_title">
+  <br><br>
+
+  <label for="post_url">URL</label>
+  <input type="text" name="post[url]" value="<%= @post.url %>" id="post_url">
+  <br><br>
+
+  <label for="post_content">Content</label>
+  <textarea name="post[content]" id="post_content" style="width: 250px; height: 75px;"></textarea>
+  <br><br>
+
+  <label for="subs">Select Subs</label>
+    <input type="hidden" name="post[sub_ids][]" value="">
+    <% Sub.all.select(:title, :id).each do |sub| %>
+      <input type="checkbox"
+      name="post[sub_ids][]"
+      value="<%=sub.id%>"
+
+      <% if @post.sub_ids.include?(sub.id) %>
+        checked
+      <% elsif @sub_id == sub.id %>
+        checked
+      <% end %>
+      > <%= sub.title %>
+    <% end %>
+  <br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+</div>

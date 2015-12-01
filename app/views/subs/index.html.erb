@@ -1,0 +1,21 @@
+<div class="container" style="padding-top: 50px;">
+  <div class="row">
+    <div class="col-md-1">Id</div>
+    <div class="col-md-2">Title</div>
+    <div class="col-md-7">Description</div>
+    <div class="col-md-2">Moderator</div>
+  </div>
+  <br>
+
+  <% @subs.each do |sub|%>
+    <div class="row">
+      <div class="col-md-1"><%= sub.id %></div>
+      <div class="col-md-2"><%= link_to sub.title, sub_url(sub) %></div>
+      <div class="col-md-7"><%= sub.description %></div>
+      <div class="col-md-2"><%= sub.moderator.username %></div>
+    </div>
+  <% end %>
+  <br>
+
+  <%= button_to "Create New Sub", new_sub_url, method: :get %>
+</div>

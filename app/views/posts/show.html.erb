@@ -1,0 +1,3 @@
+<%= link_to "edit this post", edit_sub_post_url(@post.sub, @post) if current_user == @post.author %>
+<br>
+<%= @post.inspect %>

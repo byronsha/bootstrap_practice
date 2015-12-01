@@ -1,0 +1,17 @@
+<div class="dota-sign-in">
+  <div class="clearfix"></div>
+  <div class="container" style="font-family: verdana; padding-top: 50px;">
+  <h3><font color="F08080"><b>Register</b></font></h3>
+  <form action="<%= users_url %>" method="post" class="form-inline">
+    <%= auth_token %>
+    <div class="form-group">
+      <input type="text" class="form-control" name="user[username]" placeholder="username...">
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="password" class="form-control" name="user[password]" placeholder="password...">
+    </div>
+    <button type="submit" class="btn btn-default">Go!</button>
+  </form>
+  </div>
+</div>
